@@ -1,0 +1,15 @@
+{
+	"compilerOptions" : {
+		"outDir": "./dist/",
+		"baseUrl": ".",
+		"noImplicitAny": false,
+		"module": "commonjs",
+		"target": "es5",
+		"paths": { "*": ["node_modules/*"]},
+		"jsx": "react",
+		"esModuleInterop": true,
+		"allowJs": true
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}
