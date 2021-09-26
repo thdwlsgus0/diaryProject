@@ -7,7 +7,7 @@ module.exports = {
 	mode: 'development',
 	entry: ['@babel/polyfill', './src/index'],
 	resolve: {
-		extensions: ['.jsx', '.js']
+		extensions: ['.jsx', '.js', '.tsx', '.ts']
 	},
 	devServer: {
 			contentBase: path.join(__dirname, 'dist'),
@@ -31,6 +31,13 @@ module.exports = {
 					loader: 'babel-loader',
 					},
 					exclude: /node_modules/,
+				},
+				{
+					test:/\.tsx?/,
+					use: {
+						loader: 'ts-loader',
+					},
+					exclude: /node_moudles/
 				},
 				{
 					test: /\.s[ac]ss$/i,
