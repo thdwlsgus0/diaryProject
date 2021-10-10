@@ -1,15 +1,18 @@
 {
-	"compilerOptions" : {
-		"outDir": "./dist/",
-		"baseUrl": ".",
-		"noImplicitAny": false,
-		"module": "commonjs",
-		"target": "es5",
-		"paths": { "*": ["node_modules/*"]},
-		"jsx": "react",
-		"esModuleInterop": true,
-		"allowJs": true
-	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules"]
-}
+	"compilerOptions": {
+	   "lib": [
+		  "es5",
+		  "es6",
+		  "dom"
+	   ],
+	   "target": "es5",
+	   "module": "commonjs",
+	   "esModuleInterop": true,
+	   "moduleResolution": "node",
+	   "outDir": "/dist/",
+	   "emitDecoratorMetadata": true,
+	   "experimentalDecorators": true,
+	   "sourceMap": true,
+	   "jsx": "react"
+	}
+ }
