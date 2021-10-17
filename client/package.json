@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot --stage development",
-    "build": "webpack --progress --env production"
+    "build": "webpack --progress --env production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +28,10 @@
     "@babel/plugin-transform-template-literals": "^7.14.5",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/react": "^6.3.10",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "dotenv": "^10.0.0",
