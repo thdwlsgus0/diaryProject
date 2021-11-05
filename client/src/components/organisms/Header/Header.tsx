@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {SignUpButton} from '../../molecules/SignUpButton/SignUpButton';
-import {LoginButton} from '../../molecules/LoginButton/LoginButton';
-import {Link} from '../../atoms/Link/Link';
-import {Image} from '../../atoms/Image/Image';
+import {SignUpButton} from '@components/molecules/SignUpButton/SignUpButton';
+import {LoginButton} from '@components/molecules/LoginButton/LoginButton';
+import {Link} from '@components/atoms/Link/Link';
+import {Image} from '@components/atoms/Image/Image';
 import logo from '@images/logo.svg';
 
 interface HeaderProps {}
