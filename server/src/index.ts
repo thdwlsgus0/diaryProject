@@ -20,7 +20,7 @@ import { UserResolver } from "./UserResolver";
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 
-  app.listen(4000, () => {
+  app.listen(process.env.PORT || 3000, () => {
     console.log("express sever started");
   });
 })();
