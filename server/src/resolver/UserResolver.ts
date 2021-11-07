@@ -47,7 +47,10 @@ export class UserResolver {
 		@Arg('email') email: string,
 		@Arg('password') password: string,
 	) {
-		const hashedPassword = await hash(password, 12);
+		const hashedPassword = await hash(
+			password,
+			Number(process.env.MAGIC_NUMBER),
+		);
 
 		try {
 			await User.insert({
