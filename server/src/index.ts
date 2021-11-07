@@ -4,12 +4,13 @@ import { createConnection } from 'typeorm';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
-import { UserResolver } from './UserResolver';
+import { UserResolver } from './resolver/UserResolver';
 import cookieParser from 'cookie-parser';
-import { verify } from 'jsonwebtoken';
+import { JwtPayload, verify } from 'jsonwebtoken';
 import { User } from './entity/User';
-import { createAccessToken, createRefreshToken } from './auth';
-import { sendRefreshToken } from './sendRefreshToken';
+import { createAccessToken, createRefreshToken } from './auth/auth';
+import { sendRefreshToken } from './auth/sendRefreshToken';
+import { Payload } from './interface/Payload';
 
 (async () => {
 	const app = express();
@@ -20,10 +21,10 @@ import { sendRefreshToken } from './sendRefreshToken';
 			return res.send({ ok: false, accessToken: '' });
 		}
 
-		let payload: any = null;
+		let payload: Payload = null;
 
 		try {
-			payload = verify(token, process.env.REFRESH_TOKEN_SECRET);
+			payload = verify(token, process.env.REFRESH_TOKEN_SECRET) as Payload;
 		} catch (error) {
 			console.log(error);
 			return res.send({ ok: false, accessToken: '' });

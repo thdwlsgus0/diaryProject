@@ -11,10 +11,10 @@ import {
 } from 'type-graphql';
 import { hash, compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import { User } from './entity/User';
-import { MyContext } from './MyContext';
-import { createAccessToken, createRefreshToken } from './auth';
-import { isAuth } from './isAuth';
+import { User } from '../entity/User';
+import { MyContext } from '../interface/MyContext';
+import { createAccessToken, createRefreshToken } from '../auth/auth';
+import { isAuth } from '../middleware/isAuth';
 import { getConnection } from 'typeorm';
 
 @ObjectType()
