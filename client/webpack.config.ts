@@ -8,6 +8,10 @@ module.exports = {
 	entry: ['@babel/polyfill', './src/index'],
 	resolve: {
 		extensions: ['.jsx', '.js', '.tsx', '.ts'],
+		alias: {
+			'@components': path.resolve(__dirname, 'src/components'),
+			'@images': path.resolve(__dirname, 'src/images'),
+		}
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
@@ -44,6 +48,10 @@ module.exports = {
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 				exclude: /node_modules/,
 			},
+			{
+				test: /\.svg$/,
+				use: ['file-loader']
+			}
 		],
 	},
 
