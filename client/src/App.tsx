@@ -24,6 +24,19 @@ const MainBodyContainer = styled.div`
 	text-align: center;
 `;
 
+const MainLinkContainer = styled.a`
+	&:not(:first-child) {
+		margin-top: 100px;
+	}
+	
+	display: inline-block;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 20px;
+	background-color: #59886b;
+	color: #fff;
+`;
+
 const App = () => {
 	return (
 		<>
@@ -31,6 +44,7 @@ const App = () => {
 			<Header/>
 			<MainBodyContainer>
 				<MainText/>
+				<MainLinkContainer>서비스 소개</MainLinkContainer>
 			</MainBodyContainer>
 		</>
 	)
