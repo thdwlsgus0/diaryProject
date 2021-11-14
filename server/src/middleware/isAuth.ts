@@ -1,6 +1,7 @@
-import { MiddlewareFn } from 'type-graphql/dist/interfaces/Middleware';
-import { MyContext } from './MyContext';
+import { MiddlewareFn } from 'type-graphql/dist/interfaces';
+import { MyContext } from '../interface/MyContext';
 import { verify } from 'jsonwebtoken';
+import { Payload } from '../interface/Payload';
 
 export const isAuth: MiddlewareFn<MyContext> = ({ context }, next) => {
 	const authorization = context.req.headers['authorization'];
@@ -12,8 +13,8 @@ export const isAuth: MiddlewareFn<MyContext> = ({ context }, next) => {
 	try {
 		const token = authorization.split(' ')[1];
 
-		const payload = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-		context.payload = payload as any;
+		const payload = verify(token, process.env.ACCESS_TOKEN_SECRET!) as Payload;
+		context.payload = payload;
 	} catch (err) {
 		console.log(err);
 	}

@@ -11,10 +11,10 @@ import {
 } from 'type-graphql';
 import { hash, compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import { User } from './entity/User';
-import { MyContext } from './MyContext';
-import { createAccessToken, createRefreshToken } from './auth';
-import { isAuth } from './isAuth';
+import { User } from '../entity/User';
+import { MyContext } from '../interface/MyContext';
+import { createAccessToken, createRefreshToken } from '../auth/auth';
+import { isAuth } from '../middleware/isAuth';
 import { getConnection } from 'typeorm';
 
 @ObjectType()
@@ -47,7 +47,10 @@ export class UserResolver {
 		@Arg('email') email: string,
 		@Arg('password') password: string,
 	) {
-		const hashedPassword = await hash(password, 12);
+		const hashedPassword = await hash(
+			password,
+			Number(process.env.MAGIC_NUMBER),
+		);
 
 		try {
 			await User.insert({
